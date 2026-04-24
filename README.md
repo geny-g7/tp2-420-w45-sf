@@ -12,9 +12,20 @@ Ce projet a pour but de :
 - et enfin configurer les règles de gestion des accès sécuritaires
 
 
+Section 1 - Étape 1 : Vérification et containers
+
 Avant toute chose, nous allons véritier que les composants de Docker onté été bel et bien installés.
 Il s'agit de deux cmoposants, Docker Engine et Docker Compose. Les commandes à utiliser pour ces vérifications sont les suivantes : 
-docker version et docker compose version. Une fois ces deux commandes exécutées, si les composants sont effectivement installés, les informations y associées sont affichées. la fenêtre affiche les détails semblables à ceux-ci : ![Version de Docker](images/docker_engine_version.png) et  ![Version de Docker Compose](images/docker_compose_version.png)
+    ```
+    docker version
+    ``` 
+et 
+    ```
+    docker compose version
+    ```. 
+
+Une fois ces deux commandes exécutées, si les composants sont effectivement installés, les informations y associées sont affichées. la fenêtre affiche les détails semblables à ceux-ci : ![Version de Docker](images/docker_engine_version.png) et  ![Version de Docker Compose](images/docker_compose_version.png)
+
 
 
 Section 1 - Étape 2

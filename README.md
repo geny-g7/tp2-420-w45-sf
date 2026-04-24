@@ -22,28 +22,30 @@ Création de containers et d'un réseau privé :
 
 Dans cette section, nous allons démontrer la création de containers et d'un réseau local auquel sera associé les dits containers.
 - Avec la commande suivante, nous procédons à la création d'un réseau privé nommé mon_reseau pour connecter des containers que nous allons éventuellement créer : 
-    ...
+    ```
     'docker network create -d bridge mon_reseau'
-    ...
+    ```
 
 - Créer le volume de MongoDb : docker volume create mongoDb
     # Création du volume
-    ...
+    ```
     docker volume create mongodb
-    ...
+    ```
     # Vérification que le volume est bien créé
-    ...
+    ```
     docker volume ls
-    ...
+    ```
 - Deux containers à créer : Apache, avec l'image httpd:latest et MongoDb avec l'image et un volume pour faire le montage de MongoDb 
     - Commandes utilisées pour le container Apache : 
-        ...
+        ```
         docker container run --publish 80:80 --net mon_reseau --detach --name apache httpd:latest
-        ...
+        ```
 
     Selon quelques indications de Google Gemini, "Le point de montage par défaut pour les données MongoDB est /data/db sur les systèmes Linux et macOS." Donc, notre montage sera fait sur le volume que nous avons créé avec le point de montage data/db.
     - Commande pour la création du container mongoDb :
-        ...docker container run -v mongoDb:/data/db --publish 9000:9000 --net mon_reseau --detach --name mongodb mongodb/mongodb-community-server
+        ```
+        docker container run -v mongoDb:/data/db --publish 9000:9000 --net mon_reseau --detach --name mongodb mongodb/mongodb-community-server
+        ```
 
 
 Sites de référence : 

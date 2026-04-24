@@ -66,9 +66,17 @@ Dans cette section, nous allons démontrer la création de containers et d'un r�
         docker container inspect mongoDB // pour le container MongoDB
         ```
 
+    - Pour finir, nous pouvons consulter les logs associés à nos deux containers respectifs. Les commande qui le permettent sont les suivantes : 
+        ```
+        docker container logs Apache // pour le container Apache
+        ```
+        ```
+        docker container logs mongoDB // pour le container MongoDB
+        ```
+
 
 Sites de référence : 
-- Gemini pour la recherche de la méthode pour inclure une image dans un fichier README.MD;
+- Gemini AI pour la recherche de la méthode pour inclure une image dans un fichier README.MD;
 - Documentation de Docker sur la création de réseaux privés : https://docs.docker.com/engine/network/
 
 

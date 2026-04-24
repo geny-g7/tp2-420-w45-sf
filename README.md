@@ -22,7 +22,7 @@ Il s'agit de deux cmoposants, Docker Engine et Docker Compose. Les commandes à 
 et 
     ```
     docker compose version
-    ```. 
+    ``` 
 
 Une fois ces deux commandes exécutées, si les composants sont effectivement installés, les informations y associées sont affichées. la fenêtre affiche les détails semblables à ceux-ci : ![Version de Docker](images/docker_engine_version.png) et  ![Version de Docker Compose](images/docker_compose_version.png)
 
@@ -34,7 +34,7 @@ Création de containers et d'un réseau privé :
 Dans cette section, nous allons démontrer la création de containers et d'un réseau local auquel sera associé les dits containers.
 - Avec la commande suivante, nous procédons à la création d'un réseau privé nommé mon_reseau pour connecter des containers que nous allons éventuellement créer : 
     ```
-    'docker network create -d bridge mon_reseau'
+    docker network create -d bridge mon_reseau
     ```
 
 - Créer le volume de MongoDb : docker volume create mongoDb
@@ -56,6 +56,14 @@ Dans cette section, nous allons démontrer la création de containers et d'un r�
     - Commande pour la création du container mongoDb :
         ```
         docker container run -v mongoDb:/data/db --publish 9000:9000 --net mon_reseau --detach --name mongodb mongodb/mongodb-community-server
+        ```
+
+    - Et maintenant nous pouvons vérifier que les container sont bien reliés au réseau virtuel que nous avons créé en les inspectant. La commande pour ce faire est la suivante : 
+        ```
+        docker container inspect Apache // pour le container Apache
+        ```
+        ```
+        docker container inspect mongoDB // pour le container MongoDB
         ```
 
 

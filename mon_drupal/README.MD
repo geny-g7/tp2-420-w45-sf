@@ -22,10 +22,12 @@ Nous allons procéder à la création d'un fichier Dockerfile pour l'image visé
     ENTRYPOINT
     ```
 
-- Installation de git avec la commande suivante (la commande devrait pouvoir s'exécuter sans 'sudo', mais le cas échéant ajouter sudo) : 
+- Création du volume demndé pour Postgres : 
 
-    ```
-    sudo apt update && sudo apt install -y git \ rm - rf /var//
+    ``` 
+    docker volume create -name drupal-data 
+
+    docker container run -v drupal-data:/var/lib/postgresql/data --publish 8080:8080 --detach --name postgresdb drupal-data/postgres
     ```
 
 

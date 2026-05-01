@@ -12,9 +12,9 @@ RUN git clone --branch 5.0.x --single-branch --depth 1 https://git.drupalcode.or
 RUN chown -R www-data:www-data bootstrap 
 WORKDIR /var/www/html 
 
-RUN docker volume create -name drupal-data 
+#RUN docker volume create -name drupal-data 
 
-RUN docker container run -v drupal-data:/var/lib/postgresql/data --publish 8080:8080 --detach --name postgresdb drupal-data/postgres
+#RUN docker container run -v drupal-data:/var/lib/postgresql/data --publish 8080:8080 --detach --name postgresdb drupal-data/postgres
 
 #COPY . .
 #ENTRYPOINT . .
